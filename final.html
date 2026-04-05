@@ -9,24 +9,20 @@
   <style>
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #ffe4ec, #fff);
       text-align: center;
       padding: 30px;
       margin: 0;
       overflow: hidden;
-    }
 
-    /* Minecraft-style pixel hearts background */
-    .bg {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(#ffb3c6 2px, transparent 2px),
-        radial-gradient(#ffc2d1 2px, transparent 2px);
+      /* Minecraft pink pixel background */
+      background-color: #ffd6e0;
+      background-image:
+        linear-gradient(45deg, #ffc2d1 25%, transparent 25%),
+        linear-gradient(-45deg, #ffc2d1 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ffb3c6 75%),
+        linear-gradient(-45deg, transparent 75%, #ffb3c6 75%);
       background-size: 40px 40px;
-      opacity: 0.3;
-      z-index: -1;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
     }
 
     h1 {
@@ -35,12 +31,12 @@
     }
 
     .card {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
       padding: 25px;
       border-radius: 20px;
       max-width: 500px;
       margin: auto;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     p {
@@ -57,21 +53,66 @@
       margin: 10px;
       border-radius: 15px;
     }
+
+    /* Pixel hearts floating */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      transform: rotate(45deg);
+      animation: float 6s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d88;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="bg"></div>
+  <!-- floating hearts -->
+  <div class="heart" style="left:20%; animation-delay:0s;"></div>
+  <div class="heart" style="left:40%; animation-delay:2s;"></div>
+  <div class="heart" style="left:60%; animation-delay:4s;"></div>
+  <div class="heart" style="left:80%; animation-delay:1s;"></div>
 
   <h1>💖 Order Confirmed 💖</h1>
 
   <div class="card">
     <p>
       Yay!! Your order has been placed 🥺💕<br><br>
-      Thank you for being the cutest boyfriend ever<br>
-      I love spending time with you, and I just wanna make it special for you<br>
-      and besides you got a personal little chef waiting for you on Thrusday :3 💖
+      Thank you for purchasing from your favorite collab with Girlfriend Hotline!<br>
+      Just thought I can make it a special date for you honey<br>
+      Hahaha take this as your personal cooking from your little chef-Tesheni 💖
     </p>
 
     <div class="animals">
