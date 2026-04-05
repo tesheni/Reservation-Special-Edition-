@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>4 Month Café 💖</title>
 
-  <!-- Cute Google Font -->
+  <!-- Cute Font -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -27,6 +27,20 @@
 
     p {
       color: #555;
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .images img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 15px;
     }
 
     .container {
@@ -59,25 +73,19 @@
       background-color: #e63970;
     }
 
-    .images {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
-
-    .images img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 15px;
-    }
-
     .hidden {
       display: none;
       margin-top: 20px;
       font-size: 18px;
       color: #28a745;
+    }
+
+    a button {
+      background-color: #ff85a2;
+    }
+
+    a button:hover {
+      background-color: #ff5c8a;
     }
   </style>
 </head>
@@ -105,7 +113,13 @@
 
     <button onclick="reserve()">Reserve Table</button>
 
+    <!-- Confirmation -->
     <div id="confirmation" class="hidden"></div>
+
+    <!-- Button to next page -->
+    <a href="menu.html" id="nextPage" class="hidden">
+      <button>View Your Special Menu 💕</button>
+    </a>
   </div>
 
   <script>
@@ -130,6 +144,8 @@
       const confirmation = document.getElementById("confirmation");
       confirmation.innerHTML = message;
       confirmation.classList.remove("hidden");
+
+      document.getElementById("nextPage").classList.remove("hidden");
     }
   </script>
 
